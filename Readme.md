@@ -1,13 +1,16 @@
 # Benchmark Results
-Here you see how *Velo* stacks up against other in memory Caches. Most of them are LRU(least-recently-used) caches.
+
+Here you see how _Velo_ stacks up against other in memory Caches. Most of them are LRU(least-recently-used) caches.
 Config:
+
 ```bash
 KEYS: 100000
 RUNS: 10
 OS: linux
-CPU: Intel(R) Core(TM) i7-5600U CPU @ 2.60GHz x 2
-RAM: 7.67 GB
+CPU: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz x 4
+RAM: 7.66 GB
 ```
+
 ## Table of Contents
 
 - [Velo](#velo)
@@ -17,41 +20,51 @@ RAM: 7.67 GB
 - [Metle](#metle)
 
 ## Velo
+
+https://deno.land/x/velo
 |Name|Runs|Total (ms)|Average (ms)|Avg. Operations per ms|
 |---|---|---|---|---|
-|Velo(LRU) set x100000|10|122.044|12.204|8193|
-|Velo(LRU) get x100000|10|43.092|4.309|23206|
-|Velo(LRU) update x100000|10|121.675|12.168|8218|
-|Velo(LRU) evict x100000|10|116.585|11.658|8577|
+|Velo(LRU) set x100000|10|63.274|6.327|15804|
+|Velo(LRU) get x100000|10|25.342|2.534|39460|
+|Velo(LRU) update x100000|10|54.377|5.438|18390|
+|Velo(LRU) evict x100000|10|63.585|6.358|15727|
 
 ## Cobalt
+
+https://deno.land/x/cobalt
 |Name|Runs|Total (ms)|Average (ms)|Avg. Operations per ms|
 |---|---|---|---|---|
-|Cobalt(LRU) set x100000|10|504.884|50.488|1980|
-|Cobalt(LRU) get x100000|10|563.310|56.331|1775|
-|Cobalt(LRU) update x100000|10|597.165|59.716|1674|
-|Cobalt(LRU) evict x100000|10|658.157|65.816|1519|
+|Cobalt(LRU) set x100000|10|339.548|33.955|2945|
+|Cobalt(LRU) get x100000|10|341.711|34.171|2926|
+|Cobalt(LRU) update x100000|10|346.400|34.640|2886|
+|Cobalt(LRU) evict x100000|10|361.442|36.144|2766|
 
 ## LRU
+
+https://deno.land/x/lru
 |Name|Runs|Total (ms)|Average (ms)|Avg. Operations per ms|
 |---|---|---|---|---|
-|LRU set x100000|10|155.784|15.578|6419|
-|LRU get x100000|10|213.909|21.391|4674|
-|LRU update x100000|10|179.190|17.919|5580|
-|LRU evict x100000|10|6833.694|683.369|146|
+|LRU set x100000|10|131.896|13.190|7581|
+|LRU get x100000|10|91.654|9.165|10910|
+|LRU update x100000|10|90.989|9.099|10990|
+|LRU evict x100000|10|5942.646|594.265|168|
 
 ## Cache
+
+https://deno.land/x/cache
 |Name|Runs|Total (ms)|Average (ms)|Avg. Operations per ms|
 |---|---|---|---|---|
-|Cache(LRU) set x100000|10|55579.462|5557.946|17|
-|Cache(LRU) get x100000|10|127.488|12.749|7843|
-|Cache(LRU) update x100000|10|66965.153|6696.515|14|
-|Cache(LRU) evict x100000|10|66890.181|6689.018|14|
+|Cache(LRU) set x100000|10|46849.152|4684.915|21|
+|Cache(LRU) get x100000|10|68.337|6.834|14633|
+|Cache(LRU) update x100000|10|55517.065|5551.706|18|
+|Cache(LRU) evict x100000|10|56212.843|5621.284|17|
 
 ## Metle
+
+https://deno.land/x/metle
 |Name|Runs|Total (ms)|Average (ms)|Avg. Operations per ms|
 |---|---|---|---|---|
-|Metle set x100000|10|225.238|22.524|4439|
-|Metle get x100000|10|60.796|6.080|16448|
-|Metle update x100000|10|182.617|18.262|5475|
-|Metle evict x100000|10|165.861|16.586|6029|
+|Metle set x100000|10|109.579|10.958|9125|
+|Metle get x100000|10|36.153|3.615|27660|
+|Metle update x100000|10|112.942|11.294|8854|
+|Metle evict x100000|10|97.942|9.794|10210|

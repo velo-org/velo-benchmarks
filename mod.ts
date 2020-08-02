@@ -53,6 +53,7 @@ async function generateMarkdown(results: BenchmarkResult[]) {
       res.cpu
     }\nRAM: ${res.memory}\n\`\`\`\n## Table of Contents\n\n`
   );
+
   CACHES.forEach((c) => {
     Deno.writeTextFileSync(MARKDOWN_OUT, `- [${c}](#${c.toLowerCase()})\n`, {
       append: true,
@@ -63,7 +64,7 @@ async function generateMarkdown(results: BenchmarkResult[]) {
     Deno.writeFileSync(
       MARKDOWN_OUT,
       encoder.encode(
-        `\n## ${c}\n|Name|Runs|Total (ms)|Average (ms)|Avg. Operations per ms|\n|---|---|---|---|---|\n`
+        `\n## ${c}\nhttps://deno.land/x/${c.toLowerCase()}\n|Name|Runs|Total (ms)|Average (ms)|Avg. Operations per ms|\n|---|---|---|---|---|\n`
       ),
       {
         append: true,
