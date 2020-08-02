@@ -1,7 +1,7 @@
 import { RUNS, MAX_KEYS, EVICT, DATA_1, DATA_2 } from "./benchmark.config.ts";
-import { LRU, bench } from "./deps.ts";
+import { VeloLRU, bench } from "./deps.ts";
 
-const cache = new LRU({ capacity: MAX_KEYS });
+const cache = new VeloLRU({ capacity: MAX_KEYS });
 
 bench({
   name: `Velo(LRU) set x${MAX_KEYS}`,

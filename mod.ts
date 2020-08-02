@@ -13,7 +13,7 @@ import "./velo.bench.ts";
 import "./metle.bench.ts";
 import "./cobalt.bench.ts";
 import "./lru.bench.ts";
-import "./cache.bench.ts";
+import "./dash.bench.ts";
 
 let filterRegex: RegExp | undefined;
 

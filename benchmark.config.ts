@@ -10,7 +10,7 @@ for (let i = 0; i < EVICT; i++) {
   DATA_2[i] = [i.toString(), Math.floor(Math.random() * 1e7)];
 }
 
-const CACHES = ["Velo", "Cobalt", "LRU", "Cache", "Metle"];
+const CACHES = ["Velo", "Cobalt", "LRU", "Dash", "Metle"];
 
 const MARKDOWN_OUT = "./Readme.md";
 

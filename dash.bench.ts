@@ -1,10 +1,10 @@
 import { RUNS, MAX_KEYS, EVICT, DATA_1, DATA_2 } from "./benchmark.config.ts";
-import { Cache, bench } from "./deps.ts";
+import { DashLRU, bench } from "./deps.ts";
 
-const cache = new Cache({ limit: MAX_KEYS });
+const cache = new DashLRU({ limit: MAX_KEYS });
 
 bench({
-  name: `Cache(LRU) set x${MAX_KEYS}`,
+  name: `Dash(LRU) set x${MAX_KEYS}`,
   runs: RUNS,
   func(b): void {
     b.start();
@@ -16,7 +16,7 @@ bench({
 });
 
 bench({
-  name: `Cache(LRU) get x${MAX_KEYS}`,
+  name: `Dash(LRU) get x${MAX_KEYS}`,
   runs: RUNS,
   func(b): void {
     b.start();
@@ -28,7 +28,7 @@ bench({
 });
 
 bench({
-  name: `Cache(LRU) update x${MAX_KEYS}`,
+  name: `Dash(LRU) update x${MAX_KEYS}`,
   runs: RUNS,
   func(b): void {
     b.start();
@@ -40,7 +40,7 @@ bench({
 });
 
 bench({
-  name: `Cache(LRU) evict x${MAX_KEYS}`,
+  name: `Dash(LRU) evict x${MAX_KEYS}`,
   runs: RUNS,
   func(b): void {
     b.start();
