@@ -54,3 +54,15 @@ index cf4f6b36..021406ff 100644
    }
  
    @AutoValue
+diff --git a/simulator/src/main/resources/reference.conf b/simulator/src/main/resources/reference.conf
+index d63de9dc..7ebf4dc9 100644
+--- a/simulator/src/main/resources/reference.conf
++++ b/simulator/src/main/resources/reference.conf
+@@ -106,6 +106,7 @@ caffeine.simulator {
+     product.Coherence,
+     product.Hazelcast,
+     product.ExpiringMap,
++    product.Velo,
+   ]
+ 
+   # The admission policy (opposite of eviction policy)

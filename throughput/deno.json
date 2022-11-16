@@ -1,10 +1,10 @@
 {
   "tasks": {
-    "t-all": "deno bench --unstable src/throughput.ts",
-    "t-fill": "deno bench --unstable --filter \"fill\" src/throughput.ts",
-    "t-set": "deno bench --unstable --filter \"set\" src/throughput.ts",
-    "t-scan": "deno bench --unstable --filter \"scan\" src/throughput.ts",
-    "t-update": "deno bench --unstable --filter \"update\" src/throughput.ts",
-    "t-evict": "deno bench --unstable --filter \"evict\" src/throughput.ts"
+    "t-all": "deno bench --unstable ./throughput.ts",
+    "t-fill": "deno bench --unstable --filter \"fill\" ./throughput.ts",
+    "t-set": "deno bench --unstable --filter \"set\" ./throughput.ts",
+    "t-scan": "deno bench --unstable --filter \"scan\" ./throughput.ts",
+    "t-update": "deno bench --unstable --filter \"update\" ./throughput.ts",
+    "t-evict": "deno bench --unstable --filter \"evict\" ./throughput.ts"
   }
 }
