@@ -8,7 +8,7 @@ import {
   NPM_HashLru,
   NPM_MnemonistLru,
   VeloOptions,
-} from "../deps.ts";
+} from "./deps.ts";
 
 export const CAPACITY = 100_000;
 export const EVICT = 2 * CAPACITY;

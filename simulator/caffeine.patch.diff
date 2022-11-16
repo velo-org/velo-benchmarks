@@ -1,0 +1,56 @@
+diff --git a/gradle/dependencies.gradle b/gradle/dependencies.gradle
+index a05d10da..a66d7d23 100644
+--- a/gradle/dependencies.gradle
++++ b/gradle/dependencies.gradle
+@@ -65,6 +65,7 @@ ext {
+     ycsb: '0.17.0',
+     xz: '1.9',
+     zstd: '1.5.2-5',
++    graal: '22.3.0',
+   ]
+   testVersions = [
+     awaitility: '4.2.0',
+@@ -174,6 +175,11 @@ ext {
+     },
+     xz: "org.tukaani:xz:${versions.xz}",
+     zstd: "com.github.luben:zstd-jni:${versions.zstd}",
++    graaljs: [
++      "org.graalvm.sdk:graal-sdk:${versions.graal}",
++      "org.graalvm.js:js:${versions.graal}",
++      "org.graalvm.js:js-scriptengine:${versions.graal}"
++    ]
+   ]
+   testLibraries = [
+     awaitility: "org.awaitility:awaitility:${testVersions.awaitility}",
+diff --git a/simulator/build.gradle b/simulator/build.gradle
+index a712aaec..5f714564 100644
+--- a/simulator/build.gradle
++++ b/simulator/build.gradle
+@@ -36,6 +36,7 @@ dependencies {
+   implementation libraries.commonsMath3
+   implementation libraries.commonsCompress
+   implementation libraries.univocityParsers
++  implementation libraries.graaljs
+ 
+   compileOnly libraries.autoValue
+   annotationProcessor annotationProcessors.values()
+diff --git a/simulator/src/main/java/com/github/benmanes/caffeine/cache/simulator/policy/Registry.java b/simulator/src/main/java/com/github/benmanes/caffeine/cache/simulator/policy/Registry.java
+index cf4f6b36..021406ff 100644
+--- a/simulator/src/main/java/com/github/benmanes/caffeine/cache/simulator/policy/Registry.java
++++ b/simulator/src/main/java/com/github/benmanes/caffeine/cache/simulator/policy/Registry.java
+@@ -78,6 +78,7 @@ import com.github.benmanes.caffeine.cache.simulator.policy.two_queue.TwoQueuePol
+ import com.google.auto.value.AutoValue;
+ import com.google.common.collect.ImmutableSet;
+ import com.typesafe.config.Config;
++import land.deno.velo.cache.simulator.policy.product.VeloPolicy;
+ 
+ /**
+  * The registry of caching policies.
+@@ -229,6 +230,7 @@ public final class Registry {
+     registerMany(CoherencePolicy.class, CoherencePolicy::policies);
+     registerMany(HazelcastPolicy.class, HazelcastPolicy::policies);
+     registerMany(ExpiringMapPolicy.class, ExpiringMapPolicy::policies);
++    register(VeloPolicy.class, VeloPolicy::new);
+   }
+ 
+   @AutoValue
