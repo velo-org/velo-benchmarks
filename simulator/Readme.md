@@ -30,6 +30,20 @@ $ (cd ./caffeine && git apply caffeine.patch.diff)
 Copy `VelPolicy.java` to the caffeine repository and create `./caffeine/velo.bundle.js` with `deno bundle`.
 
 ```
-$ cp -p ./VeloPolicy.java ./caffeine/src/main/java/land/deno/velo/cache/simulator/policy/product
+$ mkdir ./caffeine/src/main/java/land/deno/velo/cache/simulator/policy/product
+$ cp -p ./VeloPolicy.java ./caffeine/src/main/java/land/deno/velo/cache/simulator/policy/product/VeloPolicy.java
 $ deno bundle https://deno.land/x/velo@1.0.0/mod.ts ./caffeine/velo.bundle.js
 ```
+
+#### Small bundle fixes
+
+Depending on the versions used the bundle produced by `deno bundle` might include web types that are not supported by graaljs. As of deno 1.27, remove the `TextDecorder` and `TextEncoder`.
+
+
+### Running Simulations
+
+First look at the [official wiki page](https://github.com/ben-manes/caffeine/wiki/Simulator). 
+
+Run via:
+- IDE and supply arguments with the `application.conf` file
+- or `./gradlew simulator` and command line arguments
